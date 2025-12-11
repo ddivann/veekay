@@ -24,16 +24,16 @@ endif()
 
 set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD_REQUIRED TRUE CXX_STANDARD 20)
 
-FetchContent_Declare(
-	glfw
-	GIT_REPOSITORY https://github.com/glfw/glfw.git
-	GIT_TAG 3.4
-)
+# FetchContent_Declare(
+# 	glfw
+# 	GIT_REPOSITORY https://github.com/glfw/glfw.git
+# 	GIT_TAG 3.4
+# )
 
 FetchContent_Declare(
 	vk-bootstrap
 	GIT_REPOSITORY https://github.com/charles-lunarg/vk-bootstrap
-	GIT_TAG v1.4.321
+	GIT_TAG v1.3.283
 )
 
 FetchContent_Declare(
@@ -43,13 +43,14 @@ FetchContent_Declare(
 )
 
 find_package(Vulkan REQUIRED)
+find_package(glfw3 REQUIRED)
 
-set(GLFW_LIBRARY_TYPE STATIC)
-set(GLFW_BUILD_EXAMPLES OFF)
-set(GLFW_BUILD_TESTS OFF)
-set(GLFW_BUILD_DOCS OFF)
+# set(GLFW_LIBRARY_TYPE STATIC)
+# set(GLFW_BUILD_EXAMPLES OFF)
+# set(GLFW_BUILD_TESTS OFF)
+# set(GLFW_BUILD_DOCS OFF)
 
-FetchContent_MakeAvailable(glfw vk-bootstrap imgui)
+FetchContent_MakeAvailable(vk-bootstrap imgui)
 
 add_subdirectory(testbed)
 
